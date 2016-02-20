@@ -49,8 +49,20 @@ require([
 });
 
 ```
+### Custom Formats
+You can use default path formats:
+```json
+{
+   "template": "{app}/{components}/{template}/{template}.template",
+   "vm": "{app}/{components}/{vm}/{vm}.vm",
+   "factory": "{app}/{components}/{factory}/{factory}.factory"
+ }
 
-You can write own path provider, it should contains:
+```
+OR You can use own formats to tell components loader which type of file from which way it should download.
+
+### Custom Path Provider
+If you want You can write own path provider. It should contains:
 
 * useFormats {function} - use it to setup custom path formats to make component-loader understand where it can find templates, view models or factories. formats should be like this: 
 ```json
