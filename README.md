@@ -26,7 +26,7 @@ require([
   componentLoader.usePathProvider(pathProviderFactory.getProvider());
   
   /*
-   * 
+   * Register component loader in knockout loader list
    **/
   ko.components.loaders.unshift(componentLoader);
   
