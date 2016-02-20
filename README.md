@@ -65,10 +65,10 @@ You can write own path provider, it should contains:
 Use it in markup:
 
 ```html
-<div data-bind="component: {name: {vm: 'example-component.vm'}, params: {hello: 'world'}}"></div>
+<div data-bind="component: {name: {vm: 'example-component'}, params: {hello: 'world'}}"></div>
 
-<div data-bind="component: {name: {factory: 'example-component.factory'}, params: {hello: 'world'}}"></div>
+<div data-bind="component: {name: {factory: 'example-component'}, params: {hello: 'world'}}"></div>
 
-<div data-bind="component: {name: {app: 'example-app-2', vm: 'example-component.vm'}, params: {hello: 'world'}}"></div>
+<div data-bind="component: {name: {app: 'example-app-2', vm: 'example-component'}, params: {hello: 'world'}}"></div>
 ```
 
