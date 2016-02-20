@@ -58,4 +58,3 @@ Use it in markup:
 <div data-bind="component: {name: {app: 'example-app-2', vm: 'example-component.vm'}, params: {hello: 'world'}}"></div>
 ```
 
-It means that your 
