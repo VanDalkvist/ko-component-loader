@@ -42,9 +42,9 @@ useFormats {function} - use it to setup your path formats to make component-load
 formats {object} - just set object to it. It should be like 
 ```json
 {
-  template: 'you-template-path-format',
-  vm: 'you-vm-path-format',
-  factory: 'you-factory-path-format'
+  "template": "you-template-path-format",
+  "vm": "you-vm-path-format",
+  "factory": "you-factory-path-format"
 }
 ```
 
