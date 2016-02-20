@@ -38,8 +38,8 @@ require([
 
 You can write own path provider, it should contains:
 
-useFormats {function} - use it to setup your path formats to make component-loader understand where it can find templates, view models or factories.
-formats {object} - just set object to it. It should be like 
+* useFormats {function} - use it to setup your path formats to make component-loader understand where it can find templates, view models or factories.
+* formats {object} - just set object to it. It should be like 
 ```json
 {
   "template": "you-template-path-format",
