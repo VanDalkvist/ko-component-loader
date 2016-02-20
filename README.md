@@ -1,6 +1,18 @@
 # Knockout component-loader
 Knockout abstract components loader. RequireJS is required.
 
+### You will not use any other bindings, just default 'component' knockout binding with name and params as usual.
+
+Component-loader API:
+
+You can set next object structure to your component 'name' property. It will be like a name but object which will be used to create usual name of component :)
+{
+   app: {string}, - app name to get component from this app. You can start it with '/' then RequireJS will look after it from root domain name.
+   vm: {string}, - use if you have a view model for your component (don't use 'factory' in this case)
+   factory: {string}, - use if you have a factory for your component (don't use 'vm' in this case)
+   componentsFolder: {string} - folder where to find components, default is 'components'
+}
+
 It's components loader which can be used to load any components. You can tell it how to map your paths to download your template, view model or factory and it will do it. Just include it to your knockout loaders.
 
 ###Configuration
