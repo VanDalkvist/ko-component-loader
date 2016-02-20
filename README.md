@@ -1,4 +1,4 @@
-# component-loader
+# Knockout component-loader
 Knockout abstract components loader. RequireJS is required.
 
 It's components loader which can be used to load any components. You can tell it how to map your paths to download your template, view model or factory and it will do it. Just include it to your knockout loaders.
