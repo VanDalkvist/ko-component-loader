@@ -24,15 +24,16 @@ require([
     'ko', 'component-loader.factory'
 ], function (ko, componentLoaderFactory) {
 
-    /* You can provide root of your app.
-     * It can contains '/' in start of path. Then path provider will know that you want to load js file from root of your domain.
-     **/
-    componentLoader.appName = 'example-app';
-      
     /*
      * Setup of component loader. Build it by default factory
      **/
     var componentLoader = componentLoaderFactory.buildComponentLoader();
+    
+    /* You can provide root of your app.
+     * It can contains '/' in start of path. Then path provider will know that you want to load js file from root of your domain.
+     **/
+    componentLoader.appName = 'example-app';
+    
     /*
      * Register component loader in knockout loader list
      **/
