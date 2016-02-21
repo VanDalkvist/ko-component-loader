@@ -17,12 +17,12 @@ define([
                 /**
                  * Create config to build component using view-model or factory
                  * @param nameConfig {string/object} if string - just use default component provider by name.
-                 * Otherwise checks arguments to containing configuration like {
-                 *   app: {string}, - app name to get component from this name
-                 *   vm: {string}, - use if you have a view model for your component
-                 *   factory: {string}, - use if you have a factory for your component,
-                 *   componentsFolder: {string} - folder where to find components, default is 'components'
-                 * }
+                 *   Otherwise checks arguments to containing configuration like {
+                 *     app: {string}, - app name to get component from this name
+                 *     vm: {string}, - use if you have a view model for your component
+                 *     factory: {string}, - use if you have a factory for your component,
+                 *     componentsFolder: {string} - folder where to find components, default is 'components'
+                 *   }
                  * @param callback - standard knockout callback to operate with component config
                  */
                 getConfig: _getConfig,
