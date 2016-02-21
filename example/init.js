@@ -12,5 +12,5 @@ require([
 
     var vm = {hello: 'world!'};
 
-    ko.applyBindings(vm, document.getElementById('you-app-id'));
+    ko.applyBindings(vm, document.getElementById('example-app-id'));
 });
