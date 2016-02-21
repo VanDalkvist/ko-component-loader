@@ -47,7 +47,7 @@ require([
     var vm = {hello: 'world!'};
     
     // you should execute it after registering your component loader.
-    ko.applyBindings(vm, document.getElementById('you-app-id'));
+    ko.applyBindings(vm, document.getElementById('example-app-id'));
 });
 
 ```
@@ -58,7 +58,7 @@ You can use default path formats:
      "template": "{app}/{components}/{template}/{template}.template",
      "vm": "{app}/{components}/{vm}/{vm}.vm",
      "factory": "{app}/{components}/{factory}/{factory}.factory"
- }
+}
 
 ```
 OR You can use own formats to tell components loader which type of file from which way it should download.
@@ -84,3 +84,7 @@ Use it in markup:
 
 <div data-bind="component: {name: {app: 'example-app-2', vm: 'example-component'}, params: {hello: 'world'}}"></div>
 ```
+
+###Backlog
+
+* Get rid of knockout 'text' plugin
