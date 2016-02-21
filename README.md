@@ -21,24 +21,18 @@ You can set next object structure to your component `name` property. It will be 
 
 ```javascript
 require([
-    'ko', 'component.loader', 'path-provider.factory', 'components.settings'
-], function (ko, componentLoader, pathProviderFactory, componentSettings) {
+    'ko', 'component-loader.factory'
+], function (ko, componentLoaderFactory) {
 
     /* You can provide root of your app.
      * It can contains '/' in start of path. Then path provider will know that you want to load js file from root of your domain.
      **/
     componentLoader.appName = 'example-app';
-
-    /* 
-     * Provide your components path formats if you want
-     **/
-    var provider = pathProviderFactory.buildProvider(componentSettings.formats);
-  
+      
     /*
-     * Setup of component loader. Get it know which path provider it should use.
+     * Setup of component loader. Build it by default factory
      **/
-    componentLoader.usePathProvider(provider);
-  
+    var componentLoader = componentLoaderFactory.buildComponentLoader();
     /*
      * Register component loader in knockout loader list
      **/
@@ -64,8 +58,29 @@ You can use default path formats:
 OR You can use own formats to tell components loader which type of file from which way it should download.
 
 ### Custom Path Provider
-If you want You can write own path provider factory. It should contains:
+If you want You can write own path provider factory and tell component-loader use it. It should contains:
 
+```javascript
+    // .......  
+      
+    /* 
+     * Provide your components path formats if you want
+     **/
+    var formats = {vm: '...', template: '...'};
+    var myProvider = customPathProviderFactory.buildProvider(formats);
+    
+    var componentLoader = componentLoaderFactory.buildComponentLoader();
+    
+    /* 
+     * Tell loader which path provider it should use
+     **/
+    componentLoader.usePathProvider(myProvider)
+    
+    // .......
+    
+```
+    
+    
 * buildProvider {function} - use it to setup custom path formats to make component-loader understand where it can find templates, view models or factories. formats arguments should be like this: 
 ```json
 {
