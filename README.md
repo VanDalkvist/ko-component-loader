@@ -59,7 +59,7 @@ You can use default path formats:
 OR You can use own formats to tell components loader which type of file from which way it should download.
 
 ### Custom Path Provider
-If you want You can write own path provider factory and tell component-loader use it. It should contains:
+If you want You can write own path provider factory and tell component-loader how to use it like this:
 
 ```javascript
     // .......  
@@ -80,9 +80,12 @@ If you want You can write own path provider factory and tell component-loader us
     // .......
     
 ```
+
+Custom path provider factory should contains:
     
-    
-* buildProvider {function} - use it to setup custom path formats to make component-loader understand where it can find templates, view models or factories. formats arguments should be like this: 
+* buildProvider {function} - use it to setup custom path formats to make component-loader understand where it can find templates, view models or factories. 
+
+Formats arguments should be like this: 
 ```json
 {
     "template": "you-template-path-format",
@@ -91,7 +94,8 @@ If you want You can write own path provider factory and tell component-loader us
 }
 ```
 
-Use it in markup:
+###Use it in markup:
+
 
 ```html
 <div data-bind="component: {name: {vm: 'example-component'}, params: {hello: 'world'}}"></div>
@@ -99,6 +103,22 @@ Use it in markup:
 <div data-bind="component: {name: {factory: 'example-component'}, params: {hello: 'world'}}"></div>
 
 <div data-bind="component: {name: {app: 'example-app-2', vm: 'example-component'}, params: {hello: 'world'}}"></div>
+```
+
+###File structure
+
+Default file structure is:
+
+```
+/app
+    /components
+        /example-component
+            example-component.vm.js
+            example-component.template.html
+        /great-component
+            great-component.factory.js
+            great-component.template.html
+            
 ```
 
 ###Backlog
