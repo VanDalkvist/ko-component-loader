@@ -121,6 +121,27 @@ Default file structure is:
             
 ```
 
+###External components usage
+
+You also can use components which is not in your application like this:
+
+```
+/external
+    /components
+        /external-component
+            external-component.vm.js
+            external-component.template.html
+            
+```
+
+And use it in markup:
+
+```html
+
+<div data-bind="component: {name: {app: '/external', vm: 'external-component'}, params: {hello: 'world'}}"></div>
+
+```
+
 ###Backlog
 
 * Get rid of knockout 'text' plugin
