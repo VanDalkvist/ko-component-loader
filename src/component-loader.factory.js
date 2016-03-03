@@ -1,5 +1,5 @@
 define([
-    'require', 'path-provider.factory', 'components.settings'
+    'require', 'path-provider.factory.js', 'components.settings.js'
 ], function (require, pathProviderFactory, componentsSettings) {
 
     var loaderBuilder = {
