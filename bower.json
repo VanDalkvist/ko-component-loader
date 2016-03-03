@@ -1,0 +1,26 @@
+{
+  "name": "component-loader",
+  "description": "Knockout component loader",
+  "main": "",
+  "authors": [
+    "Ivan Afanasov"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ko",
+    "knockout",
+    "components",
+    "loader"
+  ],
+  "homepage": "https://github.com/VanDalkvist/component-loader",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
