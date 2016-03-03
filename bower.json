@@ -1,9 +1,9 @@
 {
-  "name": "component-loader",
+  "name": "ko-component-loader",
   "description": "Knockout component loader",
   "main": "dist/component-loader.js",
   "authors": [
-    "Ivan Afanasov"
+    "Ivan Afanasov <ivandalkvist@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [
