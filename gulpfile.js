@@ -7,8 +7,8 @@ var fs = require('fs');
 // preparation
 
 var paths = {
-    buildConfig: './tools/build.config.json',
-    minifyConfig: './tools/minify.config.json',
+    buildConfig: './build/build.config.json',
+    minifyConfig: './build/minify.config.json',
     src: './src/**/*.js',
     dist: './dist'
 };
