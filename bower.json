@@ -12,7 +12,7 @@
     "components",
     "loader"
   ],
-  "homepage": "https://github.com/VanDalkvist/component-loader",
+  "homepage": "https://github.com/VanDalkvist/ko-component-loader",
   "moduleType": [
     "amd"
   ],

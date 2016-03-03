@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VanDalkvist/component-loader.git"
+    "url": "git+https://github.com/VanDalkvist/ko-component-loader.git"
   },
   "keywords": [
     "ko",
@@ -21,9 +21,9 @@
   "author": "Ivan Afanasov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/VanDalkvist/component-loader/issues"
+    "url": "https://github.com/VanDalkvist/ko-component-loader/issues"
   },
-  "homepage": "https://github.com/VanDalkvist/component-loader#readme",
+  "homepage": "https://github.com/VanDalkvist/ko-component-loader#readme",
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
