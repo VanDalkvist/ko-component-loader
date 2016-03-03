@@ -9,7 +9,7 @@ Just type ```bower install ko-component-loader --save``` in your shell. That's i
 
 ###You will not use any other bindings, just default `component` knockout binding with `name` and `params` as usual.
 
-Component-loader API:
+###Component-loader API:
 
 You can set next object structure to your component `name` property. It will be like a name but object which will be used to create usual name of component :)
 ```
