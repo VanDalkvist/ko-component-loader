@@ -1,0 +1,9 @@
+{
+  "baseUrl": "./src",
+  "paths": {
+    "src": "./src"
+  },
+  "include": [
+    "./component-loader.factory"
+  ]
+}

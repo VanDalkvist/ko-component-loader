@@ -26,6 +26,8 @@
   "homepage": "https://github.com/VanDalkvist/component-loader#readme",
   "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-requirejs-optimize": "^0.3.2",
+    "lodash": "^4.6.1"
   }
 }
