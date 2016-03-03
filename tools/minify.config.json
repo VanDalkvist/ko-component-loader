@@ -6,6 +6,5 @@
   "include": [
     "./component-loader.factory"
   ],
-  "optimize": "none",
-  "out": "component-loader.js"
+  "out": "component-loader.min.js"
 }

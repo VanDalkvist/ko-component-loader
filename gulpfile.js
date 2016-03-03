@@ -2,17 +2,15 @@
 
 var gulp = require('gulp');
 var requirejsOptimize = require('gulp-requirejs-optimize');
-var _ = require('lodash');
 var fs = require('fs');
 
 // preparation
 
 var paths = {
-    config: './tools/build.config.json',
+    buildConfig: './tools/build.config.json',
+    minifyConfig: './tools/minify.config.json',
     src: './src/**/*.js',
-    dist: 'dist',
-    outFileName: 'component-loader.js',
-    outMinFileName: 'component-loader.min.js'
+    dist: './dist'
 };
 
 // gulp tasks
@@ -20,33 +18,26 @@ var paths = {
 gulp.task('default', ['build']);
 
 gulp.task('build', function () {
-    return _build({
-        optimize: 'none',
-        out: paths.outFileName
-    });
+    return _build(paths.buildConfig);
 });
 
 gulp.task('minify', function () {
-    return _build({
-        out: paths.outMinFileName
-    });
+    return _build(paths.minifyConfig);
 });
 
-function _build(options) {
-    var content = fs.readFileSync(paths.config);
+function _build(configPath) {
+    var content = fs.readFileSync(configPath);
     var config = JSON.parse(content);
 
-    options = _.extend(config, options);
-
     return gulp.src(paths.src)
-        .pipe(requirejsOptimize(options))
+        .pipe(requirejsOptimize(config))
         .pipe(gulp.dest(paths.dist));
 }
 
 /*
  // todo: add wrappings for not-amd.
  "wrap": {
- "startFile": "wrap.start",
- "endFile": "wrap.end"
+     "startFile": "wrap.start",
+     "endFile": "wrap.end"
  }
  */
