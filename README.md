@@ -149,3 +149,5 @@ And use it in markup:
 ###Backlog
 
 * Get rid of knockout 'text' plugin
+
+###Build manual is coming
