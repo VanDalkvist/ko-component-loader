@@ -2,7 +2,6 @@
 
 var gulp = require('gulp');
 var requirejsOptimize = require('gulp-requirejs-optimize');
-var path = require('path');
 var _ = require('lodash');
 var fs = require('fs');
 
@@ -45,7 +44,7 @@ function _build(options) {
 }
 
 /*
-
+ // todo: add wrappings for not-amd.
  "wrap": {
  "startFile": "wrap.start",
  "endFile": "wrap.end"
