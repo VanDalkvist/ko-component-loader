@@ -3,7 +3,11 @@ Knockout abstract components loader. RequireJS is required.
 
 It's Knockout `components loader` which can be used to load any components. You can tell it how to map your paths to download your template, view model or factory and it will do it. Just include it to your knockout loaders.
 
-### You will not use any other bindings, just default `component` knockout binding with `name` and `params` as usual.
+###Installation
+
+Just type ```bower install ko-component-loader --save``` in your shell. That's it!
+
+###You will not use any other bindings, just default `component` knockout binding with `name` and `params` as usual.
 
 Component-loader API:
 
