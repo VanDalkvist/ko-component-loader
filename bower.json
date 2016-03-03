@@ -23,5 +23,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "text": "requirejs/text#^2.0.14",
+    "requirejs": "^2.1.22"
+  }
 }
