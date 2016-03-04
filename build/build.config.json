@@ -1,10 +1,14 @@
 {
   "baseUrl": "./src",
   "paths": {
-    "src": "./src"
+    "src": "./src",
+    "knockout": "../bower_components/knockout/dist/knockout"
   },
   "include": [
     "./component-loader.factory"
+  ],
+  "exclude": [
+    "knockout"
   ],
   "optimize": "none",
   "out": "component-loader.js"
