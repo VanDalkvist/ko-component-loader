@@ -31,10 +31,12 @@ define(function () {
 
     function _partial(fn) {
         var args = Array.prototype.slice.call(arguments, 1);
+
         return function () {
-            var newArgs = Array.prototype.slice.call(arguments);
-            args.push.apply(args, newArgs);
-            return fn.apply(fn, args);
+            var nextArgs = Array.prototype.slice.call(arguments);
+            var firstArgs = Array.prototype.slice.call(args);
+            firstArgs.push.apply(firstArgs, nextArgs);
+            return fn.apply(fn, firstArgs);
         };
     }
 
