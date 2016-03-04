@@ -100,7 +100,6 @@ Formats arguments should be like this:
 
 ###Use it in markup:
 
-
 ```html
 <div data-bind="component: {name: {vm: 'example-component'}, params: {hello: 'world'}}"></div>
 
