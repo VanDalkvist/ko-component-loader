@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+    <body>
+    <h1></h1>
+    <p>Welcome to </p>
+
+    <script src="vendors/requirejs/require.js"></script>
+
+    <script src="app/main.js"></script>
+
+    <div id="example-app-id">
+        <div data-bind="component: {name: {vm: 'example'}}"></div>
+        <div data-bind="component: {name: {vm: 'hello'}}"></div>
+        <div data-bind="component: {name: {factory: 'I-am-factory'}}"></div>
+    </div>
+    </body>
+</html>
