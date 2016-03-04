@@ -1,5 +1,5 @@
 require([
-    'ko', 'component-loader.factory'
+    'knockout', 'component-loader.factory'
 ], function (ko, componentLoaderFactory) {
 
     var componentLoader = componentLoaderFactory.buildComponentLoader();
