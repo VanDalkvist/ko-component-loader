@@ -149,11 +149,11 @@ And use it in markup:
 
 Library build is processing with [r.js - requirejs for NodeJS](https://github.com/jrburke/r.js) and [Gulp](https://github.com/gulpjs/gulp)
 
-Here is two tasks: 'build' and 'minify'. Both of them run r.js optimizer to build concatenated js file with all 'src' files. 
+Here is two tasks: ```build``` and ```minify```. Both of them run r.js optimizer to build concatenated js file with all 'src' files. 
 Resulting files will is placed to 'dist' folder.
 
-Use 'build' (it's default task for gulp also) for building full version of 'src' files (as is). - ```gulp``` or ```gulp build```
-Use 'minify' if you want optimized and minimized files. - ```gulp minify```
+Use ```build``` (it's default task for gulp also) for building full version of 'src' files (as is). - ```gulp``` or ```gulp build```
+Use ```minify``` if you want optimized and minimized files. - ```gulp minify```
 
 ###Backlog
 
