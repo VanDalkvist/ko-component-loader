@@ -22,7 +22,10 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "build",
+    "package.json",
+    "gulpfile.js"
   ],
   "dependencies": {
     "text": "requirejs/text#^2.0.14",
