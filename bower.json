@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "text": "requirejs/text#^2.0.14",
-    "requirejs": "^2.1.22"
+    "requirejs": "^2.1.22",
+    "knockout": "^3.4.0"
   }
 }
