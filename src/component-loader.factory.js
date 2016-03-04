@@ -1,14 +1,24 @@
 define([
-    'require', 'path-provider.factory.js', 'components.settings.js'
-], function (require, pathProviderFactory, componentsSettings) {
+    'knockout', 'require', 'path-provider.factory', 'components.settings'
+], function (ko, require, pathProviderFactory, componentsSettings) {
 
+    // setup
+    var koOriginalComponentsGet = ko.components.get;
+
+    // config
+    var keys = ['app', 'vm', 'factory', 'componentsFolder'];
+    var defaults = {'app': 'app', 'componentsFolder': 'components'};
+
+    // builder config
     var loaderBuilder = {
         buildComponentLoader: function _buildComponentLoader() {
+            ko.components.get = _getComponent;
+
             var pathProvider = pathProviderFactory.buildProvider(componentsSettings.formats);
 
             return {
-                appName: 'app',
-                componentsFolder: 'components',
+                appName: defaults.app,
+                componentsFolder: defaults.componentsFolder,
                 pathProvider: pathProvider,
                 usePathProvider: function (pathProvider) {
                     var loader = this;
@@ -33,19 +43,53 @@ define([
 
     return loaderBuilder;
 
-    function _getConfig(nameConfig, callback) {
-        var loader = this;
-
-        if (_isString(nameConfig)) return callback(null);
-
-        if (!nameConfig.app && !loader.appName) {
-            throw new Error(
-                "You didn't provide app name as 'app' argument of name. "
-                + "Cannot resolve component with name config '" + JSON.stringify(nameConfig) + "'. "
-                + "Use component loader 'appName' config or set it to your component as 'app' argument of component 'name'.");
+    function _getComponent(componentName, callback) {
+        var name = componentName;
+        if (typeof componentName == 'object'
+            || Object.prototype.toString.call(componentName) == '[object Object]') {
+            // need to serialize name if it's an object due to components caching by name
+            name = _buildComponentName(keys, defaults, componentName);
         }
 
-        nameConfig.app = nameConfig.app ? nameConfig.app : loader.appName;
+        return koOriginalComponentsGet(name, callback);
+    }
+
+    function _buildComponentName(keys, defaults, componentName) {
+        var res = '';
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            if (!componentName.hasOwnProperty(key)/* && !defaults.hasOwnProperty(key)*/) continue;
+
+            var value = componentName[key];
+
+            //var defaultValue = defaults[key];
+            //if (!value && !!defaultValue) {
+            //    value = defaultValue;
+            //}
+
+            if (!value) continue;
+
+            res += key + '=' + value + ':';
+        }
+
+        return res.slice(0, res.length - 1);
+    }
+
+    function _getConfig(componentName, callback) {
+        var loader = this;
+
+        if (!_isString(componentName)) return callback(null);
+
+        var nameConfig = {};
+        if (!_tryBuildNameConfig(componentName, nameConfig)) return callback(null);
+
+        if (!nameConfig.app && !loader.appName) {
+            console.warn(
+                "You didn't provide app name as 'app' argument of name. "
+                + "Use component loader 'appName' config or set it to your component as 'app' argument of component 'name'. Now it will be set to empty string.");
+        }
+
+        nameConfig.app = (nameConfig.app ? nameConfig.app : loader.appName) || '';
 
         if (!nameConfig.vm && !nameConfig.factory) {
             throw new Error(
@@ -65,20 +109,21 @@ define([
 
         var config = {viewModel: {require: ''}, template: {require: ''}};
 
+        var pathProvider = loader.pathProvider;
+
         if (nameConfig.vm) {
-            config.viewModel.require = loader.pathProvider.vm(formatMap);
-            config.template.require = loader.pathProvider.template(nameConfig.vm);
+            config.viewModel.require = pathProvider.vm(formatMap);
+            formatMap.template = formatMap.vm;
+            config.template.require = pathProvider.template(formatMap);
             return callback(config);
         }
 
         // build using factory
-        formatMap.factory = nameConfig.factory;
-        var factoryPath = loader.pathProvider.factory(formatMap);
+        formatMap.template = formatMap.factory = nameConfig.factory;
 
-        formatMap.template = nameConfig.factory;
-        config.template.require = loader.pathProvider.template(formatMap);
+        config.template.require = pathProvider.template(formatMap);
 
-        require([factoryPath], function (factory) {
+        require([pathProvider.factory(formatMap)], function (factory) {
             config.viewModel = {useFactory: true, factory: factory};
             callback(config);
         });
@@ -93,6 +138,21 @@ define([
     function _isString(obj) {
         return typeof obj == 'string'
             || Object.prototype.toString.call(obj) == '[object String]';
+    }
+
+    function _tryBuildNameConfig(name, nameConfig) {
+        var componentNameParts = name.split(':');
+
+        for (var i = 0; i < componentNameParts.length; i++) {
+            var namePart = componentNameParts[i];
+            var keyValuePairs = namePart.split('=');
+            if (keyValuePairs.length === 1) return false;
+
+            var key = keyValuePairs[0];
+            var value = keyValuePairs[1];
+            nameConfig[key] = value;
+        }
+        return true;
     }
 
 });
