@@ -45,27 +45,21 @@ define([
 
     function _getComponent(componentName, callback) {
         var name = componentName;
-        if (typeof componentName == 'object'
-            || Object.prototype.toString.call(componentName) == '[object Object]') {
+        if (typeof componentName == 'object' || Object.prototype.toString.call(componentName) == '[object Object]') {
             // need to serialize name if it's an object due to components caching by name
-            name = _buildComponentName(keys, defaults, componentName);
+            name = _buildComponentName(keys, componentName);
         }
 
         return koOriginalComponentsGet(name, callback);
     }
 
-    function _buildComponentName(keys, defaults, componentName) {
+    function _buildComponentName(keys, componentName) {
         var res = '';
         for (var i = 0; i < keys.length; i++) {
             var key = keys[i];
-            if (!componentName.hasOwnProperty(key)/* && !defaults.hasOwnProperty(key)*/) continue;
+            if (!componentName.hasOwnProperty(key)) continue;
 
             var value = componentName[key];
-
-            //var defaultValue = defaults[key];
-            //if (!value && !!defaultValue) {
-            //    value = defaultValue;
-            //}
 
             if (!value) continue;
 
